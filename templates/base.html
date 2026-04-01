@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>{{ title }}</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:#f4f7fb;
+}
+
+/* Sidebar */
+.sidebar{
+    width:240px;
+    height:100vh;
+    background:#1e3c72;
+    position:fixed;
+    color:white;
+    padding-top:30px;
+}
+
+.sidebar h2{
+    text-align:center;
+}
+
+.sidebar a{
+    display:block;
+    color:white;
+    padding:15px 25px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    background:#2a5298;
+}
+
+/* Main Content */
+.main{
+    margin-left:240px;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    margin-bottom:20px;
+}
+
+.badge{
+    padding:6px 12px;
+    border-radius:20px;
+    color:white;
+    font-size:12px;
+}
+
+.success{background:#28a745;}
+.warning{background:#ffc107;color:black;}
+.info{background:#17a2b8;}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>🏥 HealthChain</h2>
+
+    {% if role == "patient" %}
+        <a href="/patient_dashboard">Dashboard</a>
+    {% elif role == "doctor" %}
+        <a href="/doctor_dashboard">Patients</a>
+    {% elif role == "admin" %}
+        <a href="/admin_dashboard">Audit Logs</a>
+    {% endif %}
+
+    <a href="/logout">Logout</a>
+</div>
+
+<div class="main">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

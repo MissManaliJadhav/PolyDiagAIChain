@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>PolyDiagAI-Chain</title>
+
+  <!-- Favicons -->
+  <link href="static/assets/img/favicon.png" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat|Poppins" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="fixed-top d-flex align-items-center">
+  <div class="container d-flex align-items-center justify-content-between">
+    <div class="logo">
+      <h1><a href="/"><span>Multi Disease Prediction</span></a></h1>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ======= Breadcrumbs ======= -->
+<section class="breadcrumbs">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <h2>Asthma Disease</h2>
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li>Asthma</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ======= Main Section ======= -->
+<section class="inner-page">
+  <div class="container">
+
+    <h2 style="text-align:center;font-size:45px;">Predict Data</h2>
+
+    <!-- File Upload -->
+    <form action="/success" method="post" enctype="multipart/form-data">
+      <div class="form">
+        <input name="file" type="file">
+        <div>
+          <img src="static/assets/img/upload.png" width="16%">
+          <strong>UPLOAD CSV FILE</strong>
+        </div>
+      </div>
+
+      <button class="predict-btn">Predict</button>
+    </form>
+
+    <!-- Custom Data -->
+    <h2 style="text-align:center;font-size:45px;">Custom Data</h2>
+
+    <img src="static/assets/img/custom.png" width="30%" style="display:block;margin:auto;">
+
+    <button onclick="location.href='asthma_form'" class="predict-btn">
+      Enter Custom Data
+    </button>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+  <div class="footer-top">
+    <div class="container">
+      <p style="text-align:center;">
+        © 2025 Multi Disease Prediction System
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Vendor JS Files -->
+<script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<style>
+.form{
+  position: relative;
+  width: 50%;
+  height: 200px;
+  border: 3px dashed grey;
+  border-radius: 10px;
+  margin: auto;
+}
+.form div{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 180px;
+}
+.form input{
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+}
+.predict-btn{
+  display: block;
+  margin: 30px auto;
+  padding: 14px 24px;
+  background: #1A1D94;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+}
+</style>
+
+</body>
+</html>

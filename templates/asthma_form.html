@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>PolyDiagAI-Chain</title>
+
+  <!-- Vendor CSS Files -->
+  <link href="{{ url_for('static', filename='assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/custom.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/form.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='assets/css/style.css') }}" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+
+<body>
+
+<!-- ===== Sidebar ===== -->
+<div class="sidebar">
+  <div class="logo-details">
+    <i class='bx bx-plus-medical icon'></i>
+    <div class="logo_name"><a href="/">Disease Prediction</a></div>
+    <i class='bx bx-menu' id="btn"></i>
+  </div>
+
+  <ul class="nav-list">
+    <li>
+      <i class='bx bx-search'></i>
+      <input type="text" placeholder="Search...">
+    </li>
+
+    <li>
+      <a href="/hd_form">
+        <i class="uil uil-heartbeat"></i>
+        <span class="links_name">Heart Disease</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="/asthma_form">
+        <i class="uil uil-lungs"></i>
+        <span class="links_name">Asthma Disease</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== Main Section ===== -->
+<section class="home-section">
+  <div class="text"><a href="/">Disease Prediction</a></div>
+
+  <div class="container">
+    <header>Asthma Disease Prediction</header>
+
+    <!-- ===== FORM START ===== -->
+    <form action="/asthma_form" method="post">
+
+      <!-- Personal Details -->
+      <div class="details personal">
+        <span class="title">Personal Details</span>
+
+        <div class="fields">
+          <div class="input-field">
+            <label>Full Name</label>
+            <input type="text" name="fullname" placeholder="Enter your name" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medical Details -->
+      <div class="details ID">
+        <span class="title">Respiratory Symptoms</span>
+
+        <div class="fields">
+
+          <div class="input-field">
+            <label>Age</label>
+            <input type="number" name="age" placeholder="Enter age" required>
+          </div>
+
+          <div class="input-field">
+            <label>Gender (1 = Male, 0 = Female)</label>
+            <input type="number" name="gender" placeholder="1 or 0" required>
+          </div>
+
+          <div class="input-field">
+            <label>Smoking (1 = Yes, 0 = No)</label>
+            <input type="number" name="smoking" placeholder="1 or 0" required>
+          </div>
+
+          <div class="input-field">
+            <label>Shortness of Breath (1/0)</label>
+            <input type="number" name="sob" placeholder="1 or 0" required>
+          </div>
+
+          <div class="input-field">
+            <label>Chest Tightness (1/0)</label>
+            <input type="number" name="chest" placeholder="1 or 0" required>
+          </div>
+
+          <div class="input-field">
+            <label>Wheezing (1/0)</label>
+            <input type="number" name="wheezing" placeholder="1 or 0" required>
+          </div>
+
+          <div class="input-field">
+            <label>Chronic Cough (1/0)</label>
+            <input type="number" name="cough" placeholder="1 or 0" required>
+          </div>
+
+          <div class="input-field">
+            <label>Family History (1/0)</label>
+            <input type="number" name="family" placeholder="1 or 0" required>
+          </div>
+
+        </div>
+
+        <div class="buttons">
+          <button class="sumbit">
+            <span class="btnText">Submit</span>
+            <i class="uil uil-navigator"></i>
+          </button>
+        </div>
+
+      </div>
+    </form>
+    <!-- ===== FORM END ===== -->
+
+  </div>
+</section>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/form.js') }}"></script>
+
+<script>
+let sidebar = document.querySelector(".sidebar");
+let closeBtn = document.querySelector("#btn");
+
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+});
+</script>
+
+</body>
+</html>

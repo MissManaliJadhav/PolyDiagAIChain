@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>PolyDiagAI-Chain</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="static/static/assets/img/favicon.png" rel="icon">
+  <link href="static/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="static/assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="static/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center header-transparent">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="/"><span>PolyDiagAI-Chain</span></a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#features">Features</a></li>
+          <li><a class="nav-link scrollto" href="#services">Diseases</a></li>
+          <li><a class="nav-link scrollto" href="/history">History</a></li>
+          <!-- login -->
+          {% if session.get('user') %}
+          <li><a class="nav-link" href="#">Welcome {{ session['user'] }}</a></li>
+          <li><a class="nav-link" href="{{ url_for('logout') }}">Logout</a></li>
+          {% else %}
+          <li><a class="nav-link" href="{{ url_for('login') }}">Login</a></li>
+          <li><a class="nav-link" href="{{ url_for('signup') }}">Sign Up</a></li>
+          {% endif %}
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
+          <div data-aos="zoom-out">
+            <h1>Multiple Disease <span>Prediction</span></h1>
+            <h2>We need to bring the exam room to where the patients are.</h2>
+            <div class="text-center text-lg-start">
+              <a href="#services" class="btn-get-started scrollto">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
+          <img src="static/assets/img/hero-bg.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+    <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+      <defs>
+        <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z">
+      </defs>
+      <g class="wave1">
+        <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)">
+      </g>
+      <g class="wave2">
+        <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)">
+      </g>
+      <g class="wave3">
+        <use xlink:href="#wave-path" x="50" y="9" fill="#fff">
+      </g>
+    </svg>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container-fluid">
+
+        <div class="row">
+          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch" data-aos="fade-right">
+            <a href="https://www.youtube.com/watch?v=LUtEgdnLSls&lc=UgzDjQ28kw_LsMiQMqd4AaABAg" class="glightbox play-btn mb-4"></a>
+          </div>
+
+          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
+            <h3>Problem we're trying to solve</h3>
+            <p>Improving health in rural areas is a major point of concern in today’s development agenda. In India poor health availability is a striking problem with over three-fourth of the country living in rural regions where there is limited access to and information about health facilities. Therefore we suggest a novel idea to overcome this problem</p>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+              <div class="icon"><i class="bx bx-fingerprint"></i></div>
+              <h4 class="title"><a href="">Early Disease Detection</a></h4>
+              <p class="description">The earlier detection of disease may lead to more cures or longer survival.</p>
+            </div>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon"><i class="bx bx-gift"></i></div>
+              <h4 class="title"><a href="">Easy Access</a></h4>
+              <p class="description">The major problem in rural area's is that lack of ease to access the healthcare facilities</p>
+            </div>
+
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon"><i class="bx bx-atom"></i></div>
+              <h4 class="title"><a href="">Quality of life</a></h4>
+              <p class="description">Our app will provide right hospitals and right doctors to contact in an early stage to improve their quality of life</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Features</h2>
+          <p>Checkout our Features</p>
+        </div>
+
+        <div class="row" data-aos="fade-left">
+          <div class="col-lg-3 col-md-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="50">
+              <i class="ri-store-line" style="color: #ffbb2c;"></i>
+              <h3><a href="">Early Detection</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
+              <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
+              <h3><a href="">Awareness</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="150">
+              <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+              <h3><a href="">Easy to use</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
+              <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
+              <h3><a href="">Accurate Predictions</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="250">
+              <i class="ri-database-2-line" style="color: #47aeff;"></i>
+              <h3><a href="">Recommendations</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
+              <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
+              <h3><a href="">Doctors</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="350">
+              <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
+              <h3><a href="">Hospitals</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="400">
+              <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
+              <h3><a href="">Medicals</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="450">
+              <i class="ri-anchor-line" style="color: #b2904f;"></i>
+              <h3><a href="">Access to care</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="500">
+              <i class="ri-disc-line" style="color: #b20969;"></i>
+              <h3><a href="">Statistics</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="550">
+              <i class="ri-base-station-line" style="color: #ff5828;"></i>
+              <h3><a href="">Transportation</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box" data-aos="zoom-in" data-aos-delay="600">
+              <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
+              <h3><a href="">Multi Disease Prediction</a></h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Features Section -->
+
+
+    <!-- ======= Choose Diseases ======= -->
+
+    <!-- ======= Features Section ======= -->
+    <section id="services" class="features">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Services</h2>
+          <p>Choose the service</p>
+        </div>
+    <div style="display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: wrap;
+  margin: 0;
+  height: 300%;">
+      <figure class="snip1107 blue"><img src="static/assets/img/choose/heart.png" alt="sampl31"/>
+        <figcaption>
+          <div><span>Upload csv/ Custom data</span></div>
+          <div>
+            <h3>Heart Disease</h3>
+          </div><a href="/heart_disease"></a>
+        </figcaption>
+      </figure>
+
+      <figure class="snip1107 navy"><img src="static/assets/img/choose/parkinsons.png" alt="sample12"/>
+        <figcaption>
+          <div><span>Upload csv/ Custom data</span></div>
+          <div>
+            <h3>Parkinson's Disease</h3>
+          </div><a href="/parkinsons"></a>
+        </figcaption>
+      </figure>
+
+
+
+      <figure class="snip1107 blue"><img src="static/assets/img/choose/diabetes.png" alt="sampl31"/>
+        <figcaption>
+          <div><span>Upload csv/ Custom data</span></div>
+          <div>
+            <h3>Diabetes</h3>
+          </div><a href="/diabetes"></a>
+        </figcaption>
+      </figure>
+
+
+
+
+
+      <figure class="snip1107 navy"><img src="static/assets/img/choose/brain.png" alt="sample12"/>
+        <figcaption>
+          <div><span>Upload Image</span></div>
+          <div>
+            <h3>Brain Tumor</h3>
+          </div><a href="/brain_tumor"></a>
+        </figcaption>
+      </figure>
+
+
+      <figure class="snip1107 blue"><img src="static/assets/img/choose/pnuemonia.png" alt="sampl31"/>
+        <figcaption>
+          <div><span>Upload Image</span></div>
+          <div>
+            <h3>Pneumonia</h3>
+          </div><a href="/pneumonia"></a>
+        </figcaption>
+      </figure>
+
+      <figure class="snip1107 navy"><img src="static/assets/img/choose/cataract.png" alt="sampl31"/>
+        <figcaption>
+          <div><span>Upload Image</span></div>
+          <div>
+            <h3>Cataract Prediction</h3>
+          </div><a href="/cataract"></a>
+        </figcaption>
+      </figure>
+
+      <figure class="snip1107 navy">
+  <img src="data:image/jpeg;base64,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" alt="asthma"/>
+  <figcaption>
+    <div><span>Upload csv / Custom data</span></div>
+    <div>
+      <h3>Asthma Disease</h3>
+    </div>
+    <a href="/asthma"></a>
+  </figcaption>
+</figure>
+
+      <figure class="snip1107 blue"><img src="static/assets/img/choose/tuberculosis.png" alt="sampl31"/>
+        <figcaption>
+          <div><span>Upload Image</span></div>
+          <div>
+            <h3>Tuberculosis</h3>
+          </div><a href="/tuberculosis"></a>
+        </figcaption>
+      </figure>
+
+      <figure class="snip1107 blue"><img src="static/assets/img/choose/other.png" alt="sampl31"/>
+        <figcaption>
+          <div><span>Upload csv/ Custom data</span></div>
+          <div>
+            <h3>Other Diseases</h3>
+          </div><a href="/other_diseases"></a>
+        </figcaption>
+      </figure>
+
+
+          <script>
+        $("figure").mouseleave(
+          function() {
+            $(this).removeClass("hover");
+          }
+        );
+        </script>
+      </div>
+    </div>
+    </section><!-- End Features Section -->
+
+    <!-- End Choose -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="insurance" class="contact">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Claim Medical Insurance</h2>
+          <p>Calculate your Insurance</p>
+        </div>
+
+        <!-- ======= Insurance Section ======= -->
+    <section id="details" class="details">
+      <div class="container">
+
+        <div class="row content">
+          <div class="col-md-4" data-aos="fade-right">
+            <img src="static/assets/img/insurance.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-md-8 pt-4" data-aos="fade-up">
+            <h3>Calculate your medical Insurance and claim from our partnered companies.</h3>
+            <p class="fst-italic">
+              We have partnered up with some legitimate medical insurance companies which would give you health insurance at right amount.
+                Calculate the Insurance amount for your medical Insurance
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i> Calculates accurate insurance amount.</li>
+              <li><i class="bi bi-check"></i> Legitimate Insurance providing companies.</li>
+              <li><i class="bi bi-check"></i> Easy to claim insurance process.</li>
+              <li><i class="bi bi-check"></i> Guaranteed authenticity.</li>
+            </ul>
+            <p>
+              Click the link below to calculate your health insurance
+            </p>
+              <a href="/insurance_form" class="btn-get-started scrollto">Calculate Insurance</a>
+
+          </div>
+        </div>
+      </div>
+    </section><!-- End insurance Section -->
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="footer-info">
+              <h3>Multi Disease Prediction</h3>
+              <p class="pb-3"><em>We need to bring the exam room to where the patients are.</em></p>
+              <p>
+                 Mahad Raigad <br>
+                  402301 <br><br>
+                <strong> Phone:</strong> +91 1234567891<br>
+                <strong>Email:</strong> multidisesase123@gmail.com<br>
+              </p>
+              <div class="social-links mt-3">
+                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4>Our Services</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Predict Diseases</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Doctors</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Hospitals</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Insurance</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Medical</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-4 col-md-6 footer-newsletter">
+            <h4>Contact us</h4>
+            <p>Our helpline is available for 24x7 </p>
+            <form action="" method="post">
+              <input type="email" name="email"><input type="submit" value="Contact">
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="static/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="static/assets/vendor/aos/aos.js"></script>
+  <script src="static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="static/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="static/assets/js/main.js"></script>
+
+</body>
+
+</html>

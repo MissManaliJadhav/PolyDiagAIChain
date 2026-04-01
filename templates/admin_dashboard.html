@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>🛡 Admin Blockchain Audit Panel</h2>
+
+<div class="card">
+    <p>All medical predictions recorded via Smart Contract.</p>
+</div>
+
+<div style="margin-bottom:20px;">
+    <a href="{{ url_for('home') }}">
+        <button style="
+            padding:10px 20px;
+            background:#203a43;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;">
+            Go to Home Page
+        </button>
+    </a>
+</div>
+
+{% if blockchain_logs %}
+{% for tx in blockchain_logs %}
+
+<div class="card" style="text-align:left; margin-bottom:20px;">
+
+<h3>Transaction ID</h3>
+
+<p style="word-break:break-all;">
+{{ tx.hash if tx.hash else "Not Available" }}
+</p>
+
+<p><b>Patient Hash:</b>
+{{ tx.patient_hash if tx.patient_hash else "Not Recorded" }}
+</p>
+
+<p><b>Disease:</b>
+{{ tx.disease if tx.disease else "Not Recorded" }}
+</p>
+
+<p><b>Model:</b>
+{{ tx.model if tx.model else "AI Model" }}
+</p>
+
+<p><b>Timestamp:</b>
+{{ tx.time if tx.time else "Not Recorded" }}
+</p>
+
+<span class="badge success">Verified On Chain ✅</span>
+
+</div>
+
+{% endfor %}
+{% else %}
+
+<div class="card">
+<p>No Blockchain Records Found</p>
+</div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Signup | Multi Disease Prediction</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+}
+
+.container{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    width:380px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    text-align:center;
+}
+
+h2{
+    margin-bottom:20px;
+    color:#203a43;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:#2c5364;
+    box-shadow:0 0 6px rgba(44,83,100,0.4);
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#203a43;
+    border:none;
+    color:white;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#2c5364;
+}
+
+a{
+    text-decoration:none;
+    color:#2c5364;
+    font-weight:600;
+}
+
+.flash{
+    color:red;
+    margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>📝 Create Account</h2>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <div class="flash">{{ messages[0] }}</div>
+    {% endif %}
+{% endwith %}
+
+<form method="POST">
+    
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <select name="role" required style="
+    width:100%;
+    padding:12px;
+    margin:12px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+">
+    <option value="">Select Role</option>
+    <option value="patient">Patient</option>
+    <option value="doctor">Doctor</option>
+    <option value="admin">Admin</option>
+</select>
+
+    <button type="submit">Sign Up</button>
+
+</form>
+
+<p style="margin-top:15px;">
+    Already have account? <a href="/login">Login</a>
+</p>
+
+</div>
+
+</body>
+</html>

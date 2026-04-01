@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>🩺 Doctor Dashboard</h2>
+
+<div class="card">
+    <h3>Patient Diagnosis Records</h3>
+</div>
+
+<!-- HOME BUTTON -->
+<div style="margin-bottom:20px;">
+    <a href="{{ url_for('home') }}">
+        <button style="
+            padding:10px 20px;
+            background:#203a43;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;">
+            Go to Home Page
+        </button>
+    </a>
+</div>
+
+<!-- RECORD TABLE WITH STYLING -->
+<div style="overflow-x:auto; margin-top:20px;">
+<table style="width:100%; border-collapse: separate; border-spacing:0 10px; background:white; border-radius:10px; padding:15px; table-layout: fixed;">
+
+<tr style="background:#203a43; color:white; text-align:left;">
+<th style="padding:12px;">Patient ID</th>
+<th style="padding:12px;">Disease</th>
+<th style="padding:12px;">Result</th>
+<th style="padding:12px;">Trust Score</th>
+<th style="padding:12px;">Blockchain Hash</th>
+<th style="padding:12px;">Status</th>
+</tr>
+
+{% if records %}
+    {% for r in records %}
+    <tr style="background:#f7f7f7; border-radius:8px;">
+        <td style="padding:12px;">{{ r.patient }}</td>
+        <td style="padding:12px;">{{ r.disease }}</td>
+        <!-- Result with spacing, wrapping, and card style -->
+        <td style="padding:12px; max-width:250px; word-wrap:break-word; overflow-wrap:break-word;">
+            <div style="background:#e0f7fa; padding:8px; border-radius:6px; white-space:pre-wrap;">
+                {{ r.result }}
+            </div>
+        </td>
+        <td style="padding:12px;">{{ r.trust }}</td>
+        <!-- Blockchain hash with wrapping -->
+        <td style="padding:12px; max-width:200px; word-wrap:break-word; overflow-wrap:break-word;">
+            <div style="background:#fff3e0; padding:8px; border-radius:6px; font-size:12px; white-space:pre-wrap;">
+                {{ r.hash }}
+            </div>
+        </td>
+        <td style="padding:12px;">
+            <span class="badge success" style="background:#4caf50; color:white; padding:5px 10px; border-radius:12px;">Stored ✅</span>
+        </td>
+    </tr>
+    {% endfor %}
+{% else %}
+<tr>
+<td colspan="6" style="text-align:center; padding:15px;">No Records Available</td>
+</tr>
+{% endif %}
+
+</table>
+</div>
+
+{% endblock %}
