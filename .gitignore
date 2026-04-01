@@ -1,3 +1,105 @@
-myenv/
+# ===============================
+# 🔹 Virtual Environment
+# ===============================
 venv/
+env/
+myenv/
+.venv/
+
+# ===============================
+# 🔹 Python Cache / Bytecode
+# ===============================
 __pycache__/
+*.py[cod]
+*$py.class
+
+# ===============================
+# 🔹 Flask / Database
+# ===============================
+instance/
+*.sqlite3
+*.db
+users.db
+
+# ===============================
+# 🔹 AI / ML Models (IMPORTANT)
+# ===============================
+*.pkl
+*.joblib
+*.h5
+*.hdf5
+*.model
+
+# ===============================
+# 🔹 Dataset Files (Large)
+# ===============================
+data/
+datasets/
+*.csv
+*.xlsx
+*.json
+
+# ===============================
+# 🔹 Blockchain Data (Temporary)
+# ===============================
+blockchain/*.db
+blockchain/*.log
+blockchain/chain_data/
+
+# ===============================
+# 🔹 Logs & Temp Files
+# ===============================
+*.log
+*.tmp
+*.temp
+temp_adv.jpg
+temp_noise.jpg
+
+# ===============================
+# 🔹 Environment Variables
+# ===============================
+.env
+.env.*
+
+# ===============================
+# 🔹 IDE / Editor Files
+# ===============================
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+/workspace.xml
+/shelf/
+
+# ===============================
+# 🔹 OS Files
+# ===============================
+.DS_Store
+Thumbs.db
+
+# ===============================
+# 🔹 Frontend (if used)
+# ===============================
+node_modules/
+dist/
+build/
+
+# ===============================
+# 🔹 Uploads
+# ===============================
+uploads/
+static/uploads/
+
+# ===============================
+# 🔹 Testing / Cache
+# ===============================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ===============================
+# 🔹 Jupyter
+# ===============================
+.ipynb_checkpoints/
