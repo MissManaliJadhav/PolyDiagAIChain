@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Blockchain History</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+    color:white;
+    text-align:center;
+}
+
+table{
+    margin:auto;
+    border-collapse:collapse;
+    width:80%;
+    background:white;
+    color:black;
+}
+
+th,td{
+    padding:12px;
+    border:1px solid #ccc;
+}
+
+th{
+    background:#2c5364;
+    color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🧾 Blockchain Medical History</h1>
+
+<table>
+<tr>
+<th>Patient</th>
+<th>Disease</th>
+<th>Result</th>
+<th>Timestamp</th>
+</tr>
+
+{% for r in records %}
+<tr>
+<td>{{r.patient}}</td>
+<td>{{r.disease}}</td>
+<td>{{r.result}}</td>
+<td>{{r.time}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>

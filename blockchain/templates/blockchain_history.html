@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blockchain Medical History</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    background:linear-gradient(135deg,#e3f2fd,#f8fbff);
+}
+
+/* ===== HEADER ===== */
+.header{
+    background:linear-gradient(90deg,#0d47a1,#1976d2);
+    color:white;
+    padding:20px;
+    text-align:center;
+    box-shadow:0px 3px 10px rgba(0,0,0,0.2);
+}
+
+.header h1{
+    margin:0;
+    font-weight:600;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+    width:90%;
+    margin:40px auto;
+}
+
+/* ===== CARD ===== */
+.card{
+    background:white;
+    border-radius:12px;
+    padding:25px;
+    box-shadow:0px 6px 18px rgba(0,0,0,0.15);
+}
+
+/* ===== TABLE ===== */
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#1976d2;
+    color:white;
+    padding:14px;
+    font-weight:500;
+}
+
+td{
+    padding:14px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+tr:hover{
+    background:#f4f9ff;
+    transition:0.3s;
+}
+
+/* ===== BADGES ===== */
+.badge{
+    padding:6px 12px;
+    border-radius:20px;
+    color:white;
+    font-size:13px;
+    font-weight:500;
+}
+
+.success{
+    background:#2e7d32;
+}
+
+.danger{
+    background:#d32f2f;
+}
+
+.info{
+    background:#0288d1;
+}
+
+/* ===== ICON STYLE ===== */
+.icon{
+    margin-right:6px;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+    text-align:center;
+    margin-top:20px;
+    color:#666;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <h1><i class="fa-solid fa-link icon"></i>
+        Blockchain Patient Prediction History
+    </h1>
+    <p>Secure AI Medical Records Stored on Ethereum Blockchain</p>
+</div>
+
+<!-- CONTENT -->
+<div class="container">
+<div class="card">
+
+<table>
+<tr>
+    <th>ID</th>
+    <th><i class="fa-solid fa-user"></i> Patient</th>
+    <th><i class="fa-solid fa-stethoscope"></i> Disease</th>
+    <th><i class="fa-solid fa-heart-pulse"></i> Result</th>
+</tr>
+
+{% for r in records %}
+<tr>
+    <td>{{ r.id }}</td>
+
+    <td>
+        <i class="fa-solid fa-user-doctor icon"></i>
+        {{ r.patient }}
+    </td>
+
+    <td>
+        <span class="badge info">
+            {{ r.disease }}
+        </span>
+    </td>
+
+    <td>
+        {% if "not" in r.result.lower() %}
+            <span class="badge success">
+                ✅ {{ r.result }}
+            </span>
+        {% else %}
+            <span class="badge danger">
+                ⚠ {{ r.result }}
+            </span>
+        {% endif %}
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+<div class="footer">
+    🔐 Immutable Records • AI + Blockchain Healthcare System
+</div>
+
+</div>
+
+</body>
+</html>
