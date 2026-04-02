@@ -24,7 +24,7 @@ from functools import wraps
 import hashlib
 from ai_analysis import print_ai_analysis,print_tabular_analysis
 app = Flask(__name__)
-app.secret_key = "multidisease_secret_key"
+#app.secret_key = "multidisease_secret_key"
 blockchain_logs=[]
 def login_required(f):
     @wraps(f)

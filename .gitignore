@@ -6,12 +6,12 @@ env/
 myenv/
 .venv/
 
+
 # ===============================
-# 🔹 Python Cache / Bytecode
+# 🔹 Python Cache
 # ===============================
 __pycache__/
 *.py[cod]
-*$py.class
 
 # ===============================
 # 🔹 Flask / Database
@@ -19,41 +19,36 @@ __pycache__/
 instance/
 *.sqlite3
 *.db
-users.db
 
 # ===============================
-# 🔹 AI / ML Models (IMPORTANT)
+# 🔹 AI / ML Models
 # ===============================
 *.pkl
 *.joblib
 *.h5
 *.hdf5
 *.model
+*.data-*
+*.index
+*/variables/
 
 # ===============================
-# 🔹 Dataset Files (Large)
+# 🔹 Dataset Files
 # ===============================
 data/
 datasets/
-*.csv
-*.xlsx
-*.json
 
 # ===============================
-# 🔹 Blockchain Data (Temporary)
+# 🔹 Blockchain Temp
 # ===============================
 blockchain/*.db
 blockchain/*.log
 blockchain/chain_data/
 
 # ===============================
-# 🔹 Logs & Temp Files
+# 🔹 Logs
 # ===============================
 *.log
-*.tmp
-*.temp
-temp_adv.jpg
-temp_noise.jpg
 
 # ===============================
 # 🔹 Environment Variables
@@ -62,25 +57,19 @@ temp_noise.jpg
 .env.*
 
 # ===============================
-# 🔹 IDE / Editor Files
+# 🔹 IDE
 # ===============================
 .vscode/
 .idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-/workspace.xml
-/shelf/
 
 # ===============================
-# 🔹 OS Files
+# 🔹 OS
 # ===============================
 .DS_Store
 Thumbs.db
 
 # ===============================
-# 🔹 Frontend (if used)
+# 🔹 Frontend
 # ===============================
 node_modules/
 dist/
@@ -93,13 +82,43 @@ uploads/
 static/uploads/
 
 # ===============================
-# 🔹 Testing / Cache
+# 🔹 Testing
 # ===============================
 .pytest_cache/
 .coverage
-htmlcov/
 
 # ===============================
 # 🔹 Jupyter
 # ===============================
 .ipynb_checkpoints/
+
+# ===============================
+# 🔹 IMPORTANT: Keep ABI JSON
+# ===============================
+!build/contracts/*.json
+
+# ===============================
+# 🔥 Project Specific (AI + Blockchain)
+# ===============================
+
+# ML Models
+*.sav
+models/*.sav
+
+# Datasets
+*.csv
+
+# Testing
+testing_input/
+
+# Pneumonia Model Files
+Pneumonia/variables/
+Pneumonia/*.pb
+Pneumonia/*.h5
+
+# Temp Images
+temp_*.jpg
+
+# Security
+*.pem
+*.key
