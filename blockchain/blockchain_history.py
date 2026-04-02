@@ -8,7 +8,7 @@ from datetime import datetime
 # ==============================
 w3 = Web3(Web3.HTTPProvider("http://127.0.0.1:8545"))
 
-if w3.is_connected():
+if w3.isConnected():
     print("✅ Blockchain Connected for History")
 else:
     print("❌ Blockchain NOT Connected")
@@ -18,7 +18,7 @@ account = w3.eth.accounts[0]
 # ==============================
 # CONTRACT ADDRESS
 # ==============================
-contract_address = "0xCA0d7Bc513C7271C0Ab51AE04861020b36D2b777"
+contract_address = "0xA68D9B2845754518e60C7Dedb4500d2147B48765"
 
 # ==============================
 # LOAD ABI
