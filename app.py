@@ -5,7 +5,7 @@ import sklearn
 import webbrowser
 import numpy as np
 import pandas as pd
-from pnuemonia import pred_model
+from pneumonia import pred_model
 from maps import current_location
 from cataract import pred_model_ct
 from brain_tumor import pred_model_bt
@@ -22,11 +22,11 @@ from datetime import datetime
 from werkzeug.utils import secure_filename
 from functools import wraps
 import hashlib
-from ai_analysis import print_ai_analysis,print_tabular_analysis
+from ai_analysis import print_ai_analysis
 from utils.adversarial import add_gaussian_noise, perturb_image, fgsm_attack
 import cv2
 app = Flask(__name__)
-#app.secret_key = "multidisease_secret_key"
+app.secret_key = "multidisease_secret_key"
 blockchain_logs=[]
 def login_required(f):
     @wraps(f)
@@ -171,7 +171,6 @@ def db_form():
             # Accuracies
             model = diabetes_model.predict_proba(input_data_diabetes_reshaped)
             acc = model.max()
-            print_tabular_analysis(diabetes_model, data, "Diabetes")
             if (prediction1[0] == 0):
                 result = 'The Patient does not have Diabetes'
             else:
@@ -284,7 +283,6 @@ def hd_form():
             # Accuracies
             model = heart_disease_model.predict_proba(input_data_heartd_reshaped)
             acc = model.max()
-            print_tabular_analysis(heart_disease_model, data, "Heart Disease")
             if (prediction1[0] == 0):
                 result = 'The Patient does not have Heart Disease'
             else:
@@ -409,7 +407,6 @@ def pk_form():
 
             model = parkinsons_model.predict_proba(input_data_parkinsons_reshaped)
             acc = model.max()
-            print_tabular_analysis(parkinsons_model, data , "Parkinsons")
             if (prediction1[0] == 0):
                 result = 'The Patient does not have Parkinsons'
             else:
@@ -562,8 +559,6 @@ def od_form():
             
             pred1 = otherdiseases_model.predict(new_data2)
             result = pred1[0]
-            #print_tabular_analysis(otherdiseases_model, new_data.tolist()[0], "Other Disease")
-            print_tabular_analysis(otherdiseases_model, data[0], "Other Disease")
             confidence = f"{round(acc * 100, 2)}%"
             trust_score = calculate_trust(acc)
             predictions = f"{result} | Confidence: {confidence} | Trust: {trust_score}"
@@ -724,7 +719,6 @@ def success():
                          prediction = asthma_model.predict(input_data)
                          prob = asthma_model.predict_proba(input_data)
                          acc = prob.max()
-                         print_tabular_analysis(asthma_model, data, "Asthma")
                          if prediction[0] == 1:
                              result = "The Patient has Asthma"
                          else:
@@ -951,10 +945,7 @@ def success_bt():
                 #result = answer
                 class_result, prob_result = pred_model_bt(img_path)  
                 acc = prob_result 
-                if acc < 0.65:     
-                    result = "No Disease Detected" 
-                else:    
-                    result = class_result  
+                result = class_result  
                 answer = result
                 print_ai_analysis(pred_model_bt, img_path) #rubstness and ai trust score evalution
                 confidence = f"{round(acc*100,2)}%"
@@ -1140,7 +1131,7 @@ def asthma_form():
             prediction = asthma_model.predict(data_np)
             prob = asthma_model.predict_proba(data_np)
             acc = prob.max()
-            print_tabular_analysis(asthma_model, data, "Asthma")
+            #print_tabular_analysis(asthma_model, data, "Asthma")
             result = "The Patient has Asthma" if prediction[0] == 1 else "The Patient does not have Asthma"
             confidence = f"{round(acc * 100, 2)}%"
             trust_score = calculate_trust(acc)
