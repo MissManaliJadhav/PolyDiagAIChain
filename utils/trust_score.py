@@ -1,21 +1,28 @@
 def calculate_trust(confidence, robustness="Stable"):
 
-    # If confidence is percentage string
+    # Convert percentage string to float
     if isinstance(confidence, str):
         confidence = float(confidence.replace("%", "")) / 100
 
-    # Now confidence will always be between 0 and 1
+    # ===============================
+    # TRUST LOGIC
+    # ===============================
 
-    if robustness == "Stable":
+    if robustness != "Stable":
+        return "Unstable Prediction ⚠️ (Adversarial Risk)"
 
-        if confidence >= 0.90:
-            return "Very High Trust ✅"
-        elif confidence >= 0.75:
-            return "High Trust 👍"
-        elif confidence >= 0.60:
-            return "Moderate Trust ⚠"
-        else:
-            return "Low Trust ❌"
+    # VERY LOW CONFIDENCE (Critical)
+    if confidence < 0.50:
+        return "Very Low Trust ❌ (Uncertain Prediction)"
+
+    elif confidence < 0.65:
+        return "Low Trust ❌"
+
+    elif confidence < 0.80:
+        return "Moderate Trust ⚠️"
+
+    elif confidence < 0.90:
+        return "High Trust 👍"
 
     else:
-        return "Low Trust ❌"
+        return "Very High Trust ✅"

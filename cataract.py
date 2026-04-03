@@ -1,31 +1,51 @@
 import tensorflow as tf
+import numpy as np
+import cv2
 
-classes = ['Cataract', 'Normal']
+# ================================
+# CLASS LABELS
+# ================================
+classes = ['Normal', 'Cataract']
+
+# ================================
+# LOAD MODEL
+# ================================
 model = tf.keras.models.load_model("Cataract")
-# Function to load and preprocess an image
-IMG_SIZE = (224, 224)
+
+# ================================
+# IMAGE PREPROCESSING
+# ================================
+IMAGE_SIZE = (224, 224)
+
+def load_and_prep_image(img_path):
+    image = cv2.imread(img_path)
+
+    if image is None:
+        raise ValueError("Image not found")
+
+    image = cv2.resize(image, IMAGE_SIZE)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image = image / 255.0
+
+    return image
 
 
-def load_and_prep_ct(filepath):
-    img = tf.io.read_file(filepath)
-    img = tf.io.decode_image(img)
-    img = tf.image.resize(img, IMG_SIZE)
+# ================================
+# PREDICTION FUNCTION
+# ================================
+def pred_model_ct(img_path, return_model=False):
 
-    return img
+    image = load_and_prep_image(img_path)
+    image_exp = np.expand_dims(image, axis=0)
 
+    prediction = model.predict(image_exp)
 
-def pred_model_ct(imgpath):
-    img_2 = load_and_prep_ct(imgpath)
+    class_idx = np.argmax(prediction)
+    prob = np.max(prediction)
 
-    pred_prob = model.predict(tf.expand_dims(img_2, axis=0))
-    print(pred_prob)
-    pred_class = classes[pred_prob.argmax()]
+    result = classes[class_idx]
 
-    return pred_class, pred_prob.max()
-
-
-# img_path = "testing_input/cataract_input/cataract_021.png"
-# class_result, prob_result = pred_model_ct(img_path)
-# predictions = (class_result, int(prob_result * 100))
-#
-# print(predictions)
+    if return_model:
+        return result, prob, model, image_exp, classes
+    else:
+        return result, prob
