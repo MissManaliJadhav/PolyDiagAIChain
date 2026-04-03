@@ -26,7 +26,7 @@ from ai_analysis import print_ai_analysis
 from utils.adversarial import add_gaussian_noise, perturb_image, fgsm_attack
 import cv2
 app = Flask(__name__)
-app.secret_key = "multidisease_secret_key"
+#app.secret_key = "multidisease_secret_key"
 blockchain_logs=[]
 def login_required(f):
     @wraps(f)
